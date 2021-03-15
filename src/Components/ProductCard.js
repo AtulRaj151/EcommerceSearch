@@ -12,6 +12,7 @@ import {
 } from "mdbreact";
 
 function ProductCard(props) {
+  const { product } = props;
   return (
     <div className="cards">
       <MDBCard
@@ -21,26 +22,17 @@ function ProductCard(props) {
         ecommerce
         narrow
       >
-        <MDBCardImage
-          cascade
-          top
-          src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(5).jpg"
-          waves
-        />
+        <MDBCardImage cascade top src={product.imgUrl} className="card-image" />
         <MDBCardBody cascade className="text-center">
           <MDBCardTitle tag="h5">Shoes</MDBCardTitle>
           <MDBCardTitle>
             <a href="#!">
-              <strong>Product name</strong>
+              <strong>{product.name}</strong>
             </a>
           </MDBCardTitle>
-          <MDBCardText>
-            Temporibus autem quibusdam et aut officiis debitis aut rerum
-            necessitatibus saepe eveniet ut et voluptates. Temporibus autem
-            quibusdam. Lorem Ipsum dolor ament.
-          </MDBCardText>
+          <MDBCardText>{product.description}</MDBCardText>
           <MDBCardFooter>
-            <span className="float-left">49$</span>
+            <span className="float-left">₹{product.price}</span>
             <span className="float-right">
               <MDBTooltip placement="top">
                 <MDBBtn
