@@ -16,8 +16,8 @@ code {
 }
 .card-container {
   position: relative;
+  overflow: auto;
   width: 80%;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -25,10 +25,26 @@ code {
   margin-left: 20%;
 }
 .search-filter {
-  border-color: 1px solid red;
-  border: 1px solid red;
+  /* border-color: 1px solid red; */
+  /* border: 1px solid red; */
   width: 20%;
   height: 91%;
   position: sticky;
   top: 0%;
+}
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.filter-brand {
+}
+.filter-category {
+}
+.filter-price {
+}
+.loading {
+  text-align: center;
+  color: #033666;
+  z-index: 12;
 }
