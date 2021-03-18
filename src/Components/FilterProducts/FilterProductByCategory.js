@@ -9,6 +9,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
+import { connect } from "react-redux";
+import { filterValue } from "../../action";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -38,7 +40,7 @@ const MenuProps = {
   },
 };
 
-const category = ["Men", "Women", "Kids", "Boys", "Girl"];
+const category = ["men", "women", "kids", "boys", "girl"];
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -48,12 +50,14 @@ function getStyles(name, personName, theme) {
   };
 }
 
-function FilterProductByCategory() {
+function FilterProductByCategory(props) {
+  console.log(props, "in filterproduct");
   const classes = useStyles();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
+    console.log("change fired");
     setPersonName(event.target.value);
   };
 
@@ -67,6 +71,10 @@ function FilterProductByCategory() {
     }
     setPersonName(value);
   };
+  props.sendData(personName);
+  console.log("this is person name ", personName);
+  props.dispatch(filterValue(props.products, personName, "category"));
+
   return (
     <div className="product-filter">
       <FormControl className={classes.formControl}>
@@ -97,5 +105,10 @@ function FilterProductByCategory() {
     </div>
   );
 }
+function mapStateToProps(state) {
+  return {
+    products: state.products,
+  };
+}
 
-export default FilterProductByCategory;
+export default connect(mapStateToProps)(FilterProductByCategory);

@@ -1,0 +1,196 @@
+{
+  "products": [
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-pair-of-white-sneakers-isolated-on-white-background-sport-shoes-712448377.jpg",
+      "name": "Sport Shoes",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 1000,
+      "category": "men",
+      "brand": "adidas"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-vintage-red-shoes-on-white-background-92008067.jpg",
+      "name": "Red SNEAKER",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 2000,
+      "category": "men",
+      "brand": "adidas"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-pink-and-black-sport-woman-shoes-isolated-on-white-background-709418083.jpg",
+      "name": "Sport Shoes Women",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 3000,
+      "category": "women",
+      "brand": "nike"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-children-s-autumn-or-winter-fashion-boots-isolated-on-white-background-708900334.jpg",
+      "name": "Winter boots children",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 4000,
+      "category": "women",
+      "brand": "Hrx"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-bangkok-thailand-january-onitsuka-tiger-asics-gel-lyte-iii-on-january-in-bangkok-292088969.jpg",
+      "name": "Sports shoes Red-White",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 5000,
+      "category": "women",
+      "brand": "puma"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-leather-shoes-isolated-on-white-background-including-clipping-path-216565609.jpg",
+      "name": "Black leather shoes",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 6000,
+      "category": "women",
+      "brand": "bata"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-casual-shoes-on-white-background-included-clipping-path-667459072.jpg",
+      "name": "Shoes Canvas",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 7000,
+      "category": "kids",
+      "brand": "nike"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-white-sneakers-on-white-background-including-clipping-path-1100736923.jpg",
+      "name": "Shoes White",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 8000,
+      "category": "kids",
+      "brand": "puma"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-yellow-sneakers-15066415.jpg",
+      "name": "Sneakers Yellow",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 9000,
+      "category": "boys",
+      "brand": "hrx"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/919436/pexels-photo-919436.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Apple Laptop",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 12000,
+      "category": "boys",
+      "brand": "lenovo"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/4464484/pexels-photo-4464484.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Buddha Sculpture",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 1500,
+      "category": "girls",
+      "brand": "hrx"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/4464883/pexels-photo-4464883.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Pants",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 500,
+      "category": "girls",
+      "brand": "puma"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-pair-of-white-sneakers-isolated-on-white-background-sport-shoes-712448377.jpg",
+      "name": "Sport Shoes",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 1000,
+      "category": "men",
+      "brand": "adidas"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-vintage-red-shoes-on-white-background-92008067.jpg",
+      "name": "Red SNEAKER",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 2000,
+      "category": "men",
+      "brand": "adidas"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-pink-and-black-sport-woman-shoes-isolated-on-white-background-709418083.jpg",
+      "name": "Sport Shoes Women",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 3000,
+      "category": "women",
+      "brand": "nike"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-children-s-autumn-or-winter-fashion-boots-isolated-on-white-background-708900334.jpg",
+      "name": "Winter boots children",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 4000,
+      "category": "women",
+      "brand": "Hrx"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-bangkok-thailand-january-onitsuka-tiger-asics-gel-lyte-iii-on-january-in-bangkok-292088969.jpg",
+      "name": "Sports shoes Red-White",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 5000,
+      "category": "women",
+      "brand": "puma"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-leather-shoes-isolated-on-white-background-including-clipping-path-216565609.jpg",
+      "name": "Black leather shoes",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 6000,
+      "category": "women",
+      "brand": "bata"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-casual-shoes-on-white-background-included-clipping-path-667459072.jpg",
+      "name": "Shoes Canvas",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 7000,
+      "category": "kids",
+      "brand": "nike"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-white-sneakers-on-white-background-including-clipping-path-1100736923.jpg",
+      "name": "Shoes White",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 8000,
+      "category": "kids",
+      "brand": "puma"
+    },
+    {
+      "imgUrl": "https://image.shutterstock.com/z/stock-photo-yellow-sneakers-15066415.jpg",
+      "name": "Sneakers Yellow",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 9000,
+      "category": "boys",
+      "brand": "hrx"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/919436/pexels-photo-919436.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Apple Laptop",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 12000,
+      "category": "boys",
+      "brand": "lenovo"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/4464484/pexels-photo-4464484.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Buddha Sculpture",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 1500,
+      "category": "girls",
+      "brand": "hrx"
+    },
+    {
+      "imgUrl": "https://images.pexels.com/photos/4464883/pexels-photo-4464883.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Pants",
+      "description": "This is well designed and crafted product that will suit many needs,in terms of quality,craftmanship and aesthetics",
+      "price": 500,
+      "category": "girls",
+      "brand": "puma"
+    }
+  ]
+}

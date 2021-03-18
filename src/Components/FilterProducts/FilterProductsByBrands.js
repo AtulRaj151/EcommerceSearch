@@ -9,6 +9,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
+import { connect } from "react-redux";
+import { filterValue } from "../../action";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -37,18 +39,7 @@ const MenuProps = {
     },
   },
 };
-const brands = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
-];
+const brands = ["adidas", "nike", "puma", "lenovo", "hrx", "bata"];
 
 function getStyles(name, personName, theme) {
   return {
@@ -59,7 +50,8 @@ function getStyles(name, personName, theme) {
   };
 }
 
-function FilterProducts() {
+function FilterProducts(props) {
+  console.log("this props in filterBrand", props);
   const classes = useStyles();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
@@ -67,7 +59,8 @@ function FilterProducts() {
   const handleChange = (event) => {
     setPersonName(event.target.value);
   };
-
+  console.log("props", props);
+  props.dispatch(filterValue(props.state.products, personName, "brand"));
   const handleChangeMultiple = (event) => {
     const { options } = event.target;
     const value = [];
@@ -114,5 +107,10 @@ function FilterProducts() {
     </div>
   );
 }
+function mapStateToProps(state) {
+  return {
+    state,
+  };
+}
 
-export default FilterProducts;
+export default connect(mapStateToProps)(FilterProducts);

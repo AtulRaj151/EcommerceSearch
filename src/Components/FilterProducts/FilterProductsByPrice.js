@@ -19,6 +19,7 @@ function FilterProductsByPrice(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  props.sendData(value);
   return (
     <div className={classes.root}>
       <Typography style={{ color: "#35BDD0" }} id="range-slider" gutterBottom>
