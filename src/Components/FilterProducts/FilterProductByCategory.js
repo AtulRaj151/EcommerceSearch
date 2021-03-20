@@ -10,7 +10,7 @@ import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import { connect } from "react-redux";
-import { filterValue } from "../../action";
+import { filterValue, filterValueByCategory } from "../../action";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -50,30 +50,28 @@ function getStyles(name, personName, theme) {
   };
 }
 
+function useAsyncState(initialValue) {
+  const [value, setValue] = React.useState(initialValue);
+  const setter = (x) =>
+    new Promise((resolve) => {
+      setValue(x);
+      resolve(x);
+    });
+  return [value, setter];
+}
+
 function FilterProductByCategory(props) {
   console.log(props, "in filterproduct");
   const classes = useStyles();
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [personName, setPersonName] = useAsyncState([]);
 
   const handleChange = (event) => {
     console.log("change fired");
-    setPersonName(event.target.value);
+    setPersonName(event.target.value).then((personName) => {
+      props.dispatch(filterValueByCategory(personName));
+    });
   };
-
-  const handleChangeMultiple = (event) => {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setPersonName(value);
-  };
-  props.sendData(personName);
-  console.log("this is person name ", personName);
-  props.dispatch(filterValue(props.products, personName, "category"));
 
   return (
     <div className="product-filter">
@@ -108,6 +106,7 @@ function FilterProductByCategory(props) {
 function mapStateToProps(state) {
   return {
     products: state.products,
+    filter: state.filter,
   };
 }
 

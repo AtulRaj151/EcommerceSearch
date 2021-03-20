@@ -2,9 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
+import { connect } from "react-redux";
+import { filterValueByPrice } from "../../action";
 const useStyles = makeStyles({
   root: {
-    width: 300,
+    width: 200,
   },
 });
 
@@ -12,12 +14,24 @@ function valuetext(value) {
   return `${value}°₹`;
 }
 
+function useAsyncState(initialValue) {
+  const [value, setValue] = React.useState(initialValue);
+  const setter = (x) =>
+    new Promise((resolve) => {
+      setValue(x);
+      resolve(x);
+    });
+  return [value, setter];
+}
+
 function FilterProductsByPrice(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = useAsyncState([0, 100000]);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setValue(newValue).then((value) => {
+      props.dispatch(filterValueByPrice(value));
+    });
   };
   props.sendData(value);
   return (
@@ -37,5 +51,11 @@ function FilterProductsByPrice(props) {
     </div>
   );
 }
+function mapStateToProps(state) {
+  return {
+    products: state.products,
+    filter: state.filter,
+  };
+}
 
-export default FilterProductsByPrice;
+export default connect(mapStateToProps)(FilterProductsByPrice);

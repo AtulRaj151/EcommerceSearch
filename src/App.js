@@ -10,7 +10,8 @@ import FilterProducts from "./Components/FilterProducts/FilterProductsByBrands";
 import FilterProductByCategory from "./Components/FilterProducts/FilterProductByCategory";
 import FilterProductsByPrice from "./Components/FilterProducts/FilterProductsByPrice";
 import data from "./data.json";
-import { fetchProduct, filterValue } from "./action";
+import { MDBBtn } from "mdbreact";
+import { addFilterProduct, fetchProduct, filterValue } from "./action";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,16 +22,17 @@ class App extends React.Component {
   }
 
   getDataFromBrand = (brand) => {
-    const { isSearch, products, search } = this.props;
-    if (isSearch) {
-      // search
-      let data = filterValue(search, brand, "brand");
-    } else {
-      // products
-      let data = filterValue(products, brand, "brand");
-      console.log(data);
-      this.setState({ products: data });
-    }
+    // const { isSearch, products, search } = this.props;
+    // if (isSearch) {
+    //   // search
+    //   let data = filterValue(search, brand, "brand");
+    // } else {
+    //   // products
+    //   let data = filterValue(products, brand, "brand");
+    //   console.log(data);
+    //   this.setState({ products: data });
+    // }
+    console.log(brand);
   };
   // filterValue = (list, filter, value) => {
   //   console.log("list item = ", list);
@@ -87,11 +89,20 @@ class App extends React.Component {
     }, 1000);
     this.getProductList();
   };
-
+  handleFilter = () => {
+    let { brands, category, price, products, isSearch, search } = this.props;
+    console.log(this.props);
+    if (isSearch) {
+      this.props.dispatch(addFilterProduct(brands, category, price, search));
+      return;
+    }
+    this.props.dispatch(addFilterProduct(brands, category, price, products));
+  };
   render() {
     console.log("this props ", this.props);
-    const { products, search, isSearch } = this.props;
-    const displayItem = isSearch ? search : products;
+    const { products, search, isSearch, isFilter, filter } = this.props;
+    console.log(isFilter, "Is Filter");
+    const displayItem = isFilter ? filter : isSearch ? search : products;
 
     console.log(products);
     return (
@@ -100,24 +111,37 @@ class App extends React.Component {
         <div className="search-filter">
           <h3 style={{ color: "#35BDD0" }}>Filter</h3>
           <div className="filter-container">
-            <FilterProducts
-              className="filter-brand"
-              sendData={this.getDataFromBrand}
-            />
-            <FilterProductByCategory
-              className="filter-category"
-              sendData={this.getDataFromCategory}
-            />
-            <FilterProductsByPrice
-              className="filter-price"
-              sendData={this.getDataFromPrice}
-            />
+            <ul className="filter-list">
+              <li>
+                <FilterProducts className="filter-brand" isBrand={isFilter} />
+              </li>
+              <li>
+                <FilterProductByCategory
+                  className="filter-category"
+                  isFilter={isFilter}
+                />
+              </li>
+              <li>
+                <FilterProductsByPrice
+                  className="filter-price"
+                  sendData={this.getDataFromPrice}
+                />
+              </li>
+              <li>
+                <MDBBtn gradient="aqua" onClick={this.handleFilter}>
+                  Filter
+                </MDBBtn>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="card-container" style={{ display: "flex" }}>
-          {displayItem.slice(0, this.state.items).map((product, index) => (
-            <ProductCard product={product} key={`product${index}`} />
-          ))}
+          {displayItem !== undefined &&
+            displayItem
+              .slice(0, this.state.items)
+              .map((product, index) => (
+                <ProductCard product={product} key={`product${index}`} />
+              ))}
         </div>
         {this.state.LoadingState ? (
           <p className="loading">
@@ -141,6 +165,13 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     products: state.products,
+    brands: state.brands,
+    category: state.category,
+    price: state.price,
+    filter: state.filter,
+    isFilter: state.isFilter,
+    search: state.search,
+    isSearch: state.isSearch,
   };
 }
 

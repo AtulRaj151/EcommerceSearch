@@ -14,6 +14,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { connect } from "react-redux";
+import { search } from "../action";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -84,13 +86,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchBar() {
+function SearchBar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const handleChange = (e) => {
+    let text = e.target.value;
+    console.log("search triggerd");
+    props.dispatch(search(text.toLowerCase(), props.products));
+  };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -191,6 +198,7 @@ function SearchBar() {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange={handleChange}
             />
           </div>
           <div className={classes.grow} />
@@ -245,4 +253,9 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+function mapStateToProps(state) {
+  return {
+    products: state.products,
+  };
+}
+export default connect(mapStateToProps)(SearchBar);

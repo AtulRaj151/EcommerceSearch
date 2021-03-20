@@ -10,7 +10,8 @@ import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import { connect } from "react-redux";
-import { filterValue } from "../../action";
+import { addFilterByBrand, filterValueByBrand } from "../../action";
+import useStateWithCallback from "use-state-with-callback";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -50,27 +51,29 @@ function getStyles(name, personName, theme) {
   };
 }
 
+function useAsyncState(initialValue) {
+  const [value, setValue] = React.useState(initialValue);
+  const setter = (x) =>
+    new Promise((resolve) => {
+      setValue(x);
+      resolve(x);
+    });
+  return [value, setter];
+}
+
 function FilterProducts(props) {
   console.log("this props in filterBrand", props);
   const classes = useStyles();
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [personName, setPersonName] = useAsyncState([]);
 
   const handleChange = (event) => {
-    setPersonName(event.target.value);
+    setPersonName(event.target.value).then((personName) => {
+      props.dispatch(filterValueByBrand(personName));
+    });
   };
   console.log("props", props);
-  props.dispatch(filterValue(props.state.products, personName, "brand"));
-  const handleChangeMultiple = (event) => {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setPersonName(value);
-  };
+
   return (
     <div className="product-filter">
       <FormControl className={classes.formControl}>
@@ -109,7 +112,8 @@ function FilterProducts(props) {
 }
 function mapStateToProps(state) {
   return {
-    state,
+    products: state.products,
+    filter: state.filter,
   };
 }
 
