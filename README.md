@@ -17,3 +17,8 @@
 
  - Firebase
  - https://ecommerce-search-1ca00.web.app/index.html
+
+## Installation
+- clone this repo
+- npm install
+- npm start
